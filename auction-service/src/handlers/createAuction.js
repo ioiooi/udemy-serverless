@@ -1,7 +1,9 @@
 import { v4 as uuid } from "uuid";
-import AWS from "aws-sdk";
+import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
+import { DynamoDBDocumentClient, PutCommand } from "@aws-sdk/lib-dynamodb";
 
-const dynamodb = new AWS.DynamoDB.DocumentClient();
+const client = new DynamoDBClient({});
+const docClient = DynamoDBDocumentClient.from(client);
 
 async function createAuction(event, context) {
   const { title } = JSON.parse(event.body);
@@ -14,16 +16,17 @@ async function createAuction(event, context) {
     createdAt: now.toISOString(),
   };
 
-  await dynamodb
-    .put({
-      TableName: "AuctionsTable",
-      Item: auction,
-    })
-    .promise();
+  const input = {
+    TableName: "AuctionsTable",
+    Item: auction,
+  };
+
+  const command = new PutCommand(input);
+  const response = await docClient.send(command);
 
   return {
     statusCode: 201,
-    body: JSON.stringify(auction),
+    body: JSON.stringify(auction, response),
   };
 }
 
