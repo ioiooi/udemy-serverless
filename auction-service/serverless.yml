@@ -11,6 +11,8 @@ provider:
   stage: ${opt:stage, 'dev'}
   region: eu-central-1
   deploymentMethod: direct
+  environment:
+    AUCTIONS_TABLE_NAME: ${self:custom.AuctionsTable.name}
   iamRoleStatements:
     - ${file(iam/AuctionsTableIAM.yml):AuctionsTableIAM}
 
@@ -25,3 +27,8 @@ functions:
       - httpApi:
           method: POST
           path: /auction
+
+custom:
+  AuctionsTable:
+    name: !Ref AuctionsTable
+    arn: !GetAtt AuctionsTable.Arn

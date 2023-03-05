@@ -17,7 +17,7 @@ async function createAuction(event, context) {
   };
 
   const input = {
-    TableName: "AuctionsTable",
+    TableName: process.env.AUCTIONS_TABLE_NAME,
     Item: auction,
   };
 
