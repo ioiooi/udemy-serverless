@@ -15,6 +15,6 @@ functions:
   createAuction:
     handler: src/handlers/createAuction.handler
     events:
-      - http:
+      - httpApi:
           method: POST
           path: /auction
