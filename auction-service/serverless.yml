@@ -27,6 +27,12 @@ functions:
       - httpApi:
           method: POST
           path: /auction
+  getAuctions:
+    handler: src/handlers/getAuctions.handler
+    events:
+      - httpApi:
+          method: GET
+          path: /auctions
 
 custom:
   AuctionsTable:
