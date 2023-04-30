@@ -2,7 +2,6 @@ service: auction-service
 
 plugins:
   - serverless-bundle
-  - serverless-pseudo-parameters
 
 provider:
   name: aws
