@@ -5,10 +5,13 @@
   "author": "Ariel Weinberger <ariel@codingly.io>",
   "license": "MIT",
   "scripts": {
+    "deploy": "npm run deploy:dev",
     "deploy:dev": "serverless deploy --stage dev --verbose",
     "deploy:prod": "serverless deploy --stage prod --verbose",
     "deploy:func": "serverless deploy function --function",
-    "remove": "serverless remove --verbose"
+    "remove": "npm run remove:dev",
+    "remove:dev": "serverless remove --stage dev --verbose",
+    "remove:prod": "serverless remove --stage prod --verbose"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
