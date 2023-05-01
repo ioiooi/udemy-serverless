@@ -6,14 +6,14 @@ import createError from "http-errors";
 const client = new DynamoDBClient({});
 const docClient = DynamoDBDocumentClient.from(client);
 
-async function getAuction(event, context) {
+export async function getAuctionById(id) {
   let auction;
-  const { id } = event.pathParameters;
 
   const input = {
     TableName: process.env.AUCTIONS_TABLE_NAME,
     Key: { id },
   };
+
   const command = new GetCommand(input);
 
   try {
@@ -27,6 +27,13 @@ async function getAuction(event, context) {
   if (!auction) {
     throw new createError.NotFound(`Auction with ID "${id}" not found!`);
   }
+
+  return auction;
+}
+
+async function getAuction(event, context) {
+  const { id } = event.pathParameters;
+  const auction = await getAuctionById(id);
 
   return {
     statusCode: 200,
