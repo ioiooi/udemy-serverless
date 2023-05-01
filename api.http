@@ -1,0 +1,27 @@
+@baseUrl = https://so8vy8ckmf.execute-api.eu-central-1.amazonaws.com
+
+###
+
+GET {{baseUrl}}/auctions
+
+###
+
+GET {{baseUrl}}/auction/uuid
+
+###
+
+POST {{baseUrl}}/auction
+Content-Type: application/json
+
+{
+	"title": "test auction 2"
+}
+
+###
+
+PATCH {{baseUrl}}/auction/a29cd3bb-3126-4a3b-a974-d358a62900f2/bid
+Content-Type: application/json
+
+{
+	"amount": 16
+}
