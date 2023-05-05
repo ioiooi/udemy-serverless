@@ -6,6 +6,31 @@ https://www.udemy.com/course/serverless-framework/
 
 ![](docs/images/project-overview.png)
 
+### Section 01 - 04
+
+- Creating simple Lambdas / API Endpoints for createAuction, getAuction, getAuctions and placeBid
+- Creating a DynamoDB Table to persist the data
+
+### Section 05
+
+- Creating scheduled Lambda
+
+Creating a new or developing a scheduled lambda is tedious, so during development the trigger can be commented out 
+
+```yml
+functions:
+  processAuctions:
+    handler: src/handlers/processAuctions.handler
+    # events:
+    #   - schedule: rate(1 minute)
+```
+
+and the lambda can be triggered manually.
+
+```
+serverless invoke -f processAuctions --stage dev -l
+```
+
 ## Commands
 
 ### Deploying
