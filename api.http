@@ -2,7 +2,7 @@
 
 ###
 
-GET {{baseUrl}}/auctions
+GET {{baseUrl}}/auctions?status=OPEN
 
 ###
 
@@ -14,12 +14,13 @@ POST {{baseUrl}}/auction
 Content-Type: application/json
 
 {
-	"title": "test auction 2"
+	"title": "test auction 1"
 }
 
 ###
 
-PATCH {{baseUrl}}/auction/a29cd3bb-3126-4a3b-a974-d358a62900f2/bid
+@auctionId = 07c43e1a-9c87-4c78-89da-4aacf9fda0e4
+PATCH {{baseUrl}}/auction/{{auctionId}}/bid
 Content-Type: application/json
 
 {
