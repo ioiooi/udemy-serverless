@@ -14,6 +14,9 @@ https://www.udemy.com/course/serverless-framework/
 ### Section 05
 
 - Creating scheduled Lambda
+- Create global secondary index in DynamoDB
+- Use query and newly created index to get items from DB
+- JSONSchema bunch of things 
 
 Creating a new or developing a scheduled lambda is tedious, so during development the trigger can be commented out 
 
