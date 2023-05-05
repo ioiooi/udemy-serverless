@@ -1,5 +1,8 @@
 import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
 import { DynamoDBDocumentClient, UpdateCommand } from "@aws-sdk/lib-dynamodb";
+import validator from "@middy/validator";
+import { transpileSchema } from "@middy/validator/transpile";
+import placeBidSchema from "../lib/schemas/placeBidSchema";
 import commonMiddleware from "../lib/commonMiddleware";
 import { getAuctionById } from "./getAuction";
 import createError from "http-errors";
@@ -49,4 +52,8 @@ async function placeBid(event, context) {
   };
 }
 
-export const handler = commonMiddleware(placeBid);
+export const handler = commonMiddleware(placeBid).use(
+  validator({
+    eventSchema: transpileSchema(placeBidSchema),
+  })
+);
