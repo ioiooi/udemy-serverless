@@ -16,9 +16,9 @@ https://www.udemy.com/course/serverless-framework/
 - Creating scheduled Lambda
 - Create global secondary index in DynamoDB
 - Use query and newly created index to get items from DB
-- JSONSchema bunch of things 
+- JSONSchema bunch of things
 
-Creating a new or developing a scheduled lambda is tedious, so during development the trigger can be commented out 
+Creating a new or developing a scheduled lambda is tedious, so during development the trigger can be commented out
 
 ```yml
 functions:
@@ -33,6 +33,16 @@ and the lambda can be triggered manually.
 ```
 serverless invoke -f processAuctions --stage dev -l
 ```
+
+### Section 06
+
+- Create auth0 account -> tenant -> application -> test user
+- Add auth0 login to rest client in order to get the ID_TOKEN of the test user
+- Clone project `auth-service`
+  - Add `secret.pem` and copy/paste cert from auth0
+  - Ofc deployment failed... add region and stage, update dependencies
+  - Update `auth.js` to support both GatewayV1 and GatewayV2
+- Add auth-service `/private` to rest client for testing purposes
 
 ## Commands
 
@@ -62,7 +72,7 @@ Stack removal / take down application
 npm run remove
 ```
 
-## URL 
+## URL
 
 Getting the URL of the auction service in order to hit the lambdas.
 

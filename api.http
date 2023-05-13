@@ -26,3 +26,20 @@ Content-Type: application/json
 {
 	"amount": 16
 }
+
+###
+
+curl --request POST \
+  --url https://udemy-sls-auction-service.eu.auth0.com/oauth/token \
+  --header 'Content-Type: application/x-www-form-urlencoded' \
+  --data client_id=wcw9DyqwT4T3zDc8lGkRvh6DcxuQFWyt \
+  --data username=EMAIL_ADDRESS \
+  --data 'password=PASSWORD' \
+  --data grant_type=password \
+  --data scope=openid
+
+###
+
+curl --request POST \
+  --url https://26ja4ik8aa.execute-api.eu-central-1.amazonaws.com/dev/private \
+  --header 'Authorization: Bearer AUTH0.COM_ID_TOKEN'
