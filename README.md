@@ -43,6 +43,7 @@ serverless invoke -f processAuctions --stage dev -l
   - Ofc deployment failed... add region and stage, update dependencies
   - Update `auth.js` to support both GatewayV1 and GatewayV2
 - Add auth-service `/private` to rest client for testing purposes
+- Add authorizer to auction-service API endpoints
 
 ## Commands
 
