@@ -44,6 +44,9 @@ serverless invoke -f processAuctions --stage dev -l
   - Update `auth.js` to support both GatewayV1 and GatewayV2
 - Add auth-service `/private` to rest client for testing purposes
 - Add authorizer to auction-service API endpoints
+- Add email address to `createAuction` and `placeBid`
+
+![](docs/images/auth0-auth-auction.png)
 
 ## Commands
 
