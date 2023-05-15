@@ -20,17 +20,17 @@
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "serverless-bundle": "^6.0.0",
-    "webpack": "^5.82.0"
+    "webpack": "^5.82.1"
   },
   "dependencies": {
-    "@aws-sdk/client-dynamodb": "^3.326.0",
-    "@aws-sdk/lib-dynamodb": "^3.326.0",
-    "@middy/core": "^4.4.0",
-    "@middy/http-error-handler": "^4.4.0",
-    "@middy/http-event-normalizer": "^4.4.0",
-    "@middy/http-json-body-parser": "^4.4.0",
-    "@middy/input-output-logger": "^4.4.1",
-    "@middy/validator": "^4.4.0",
+    "@aws-sdk/client-dynamodb": "^3.332.0",
+    "@aws-sdk/lib-dynamodb": "^3.332.0",
+    "@middy/core": "^4.4.2",
+    "@middy/http-error-handler": "^4.4.2",
+    "@middy/http-event-normalizer": "^4.4.2",
+    "@middy/http-json-body-parser": "^4.4.2",
+    "@middy/input-output-logger": "^4.4.2",
+    "@middy/validator": "^4.4.2",
     "http-errors": "^2.0.0",
     "uuid": "^9.0.0"
   }
