@@ -9,11 +9,9 @@ provider:
   memorySize: 256
   stage: ${opt:stage, 'dev'}
   region: eu-central-1
+  iamRoleStatements:
+    - ${file(iam/SendMailIAM.yml):SendMailIAM}
 
 functions:
-  hello:
-    handler: src/handlers/hello.handler
-    events:
-      - http:
-          method: GET
-          path: /hello
+  sendMail:
+    handler: src/handlers/sendMail.handler
