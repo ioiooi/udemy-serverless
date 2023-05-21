@@ -55,9 +55,11 @@ serverless invoke -f processAuctions --stage dev -l
 - Hardcode everything and send a test email to the from and to the previously verified identity
   - `sls invoke -f sendMail -l`
 - Create SQS MailQueue in `notification-service` and update lambda function to process SQS messages (records[] etc...)
-  - Create and send a SQS message using AWS dashboard "Send and receive messages"
-- Use CloudFormation Outputs to export Message Queue ARN and URL. Reference the CloudFormation Outputs in `auction-service`
+  - Create and send a SQS message using AWS dashboard "Send and receive messages" ![](docs/images/sqs-send-msg.PNG)
+- Use CloudFormation Outputs to export Message Queue ARN and URL. Reference the CloudFormation Outputs in `auction-service` ![](docs/images/cloudformation-outputs.PNG)
 - Update `closeAuction.js`, notify seller and bidder by putting messages in the MailQueueSQS
+
+![](docs/images/auction-notification.png)
 
 ## Commands
 
