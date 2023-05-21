@@ -62,7 +62,7 @@ functions:
   processAuctions:
     handler: src/handlers/processAuctions.handler
     events:
-      - schedule: rate(1 minute)
+      - schedule: rate(15 minutes)
 
 custom:
   authorizerLambda: arn:aws:lambda:${aws:region}:${aws:accountId}:function:auth-service-${sls:stage}-auth
