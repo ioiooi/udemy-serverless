@@ -20,12 +20,12 @@
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "serverless-bundle": "^6.0.0",
-    "webpack": "^5.83.1"
+    "webpack": "^5.84.1"
   },
   "dependencies": {
-    "@aws-sdk/client-dynamodb": "^3.337.0",
-    "@aws-sdk/client-sqs": "^3.337.0",
-    "@aws-sdk/lib-dynamodb": "^3.337.0",
+    "@aws-sdk/client-dynamodb": "^3.341.0",
+    "@aws-sdk/client-sqs": "^3.341.0",
+    "@aws-sdk/lib-dynamodb": "^3.341.0",
     "@middy/core": "^4.4.3",
     "@middy/http-error-handler": "^4.4.3",
     "@middy/http-event-normalizer": "^4.4.3",
