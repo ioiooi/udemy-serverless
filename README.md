@@ -61,6 +61,16 @@ serverless invoke -f processAuctions --stage dev -l
 
 ![](docs/images/auction-notification.png)
 
+### Section 08
+
+- Create S3 Bucket for picture uploads. Fix course resources by adding the following lines to the Bucket Resource
+
+```yml
+PublicAccessBlockConfiguration:
+  BlockPublicPolicy: false
+  RestrictPublicBuckets: false
+```
+
 ## Commands
 
 ### Deploying

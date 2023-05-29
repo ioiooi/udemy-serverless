@@ -2,6 +2,9 @@ AuctionsBucket:
   Type: AWS::S3::Bucket
   Properties:
     BucketName: ${self:custom.AuctionsBucket.name}
+    PublicAccessBlockConfiguration:
+      BlockPublicPolicy: false
+      RestrictPublicBuckets: false
 
 AuctionsBucketPolicy:
   Type: AWS::S3::BucketPolicy
