@@ -43,3 +43,11 @@ curl --request POST \
 curl --request POST \
   --url https://26ja4ik8aa.execute-api.eu-central-1.amazonaws.com/dev/private \
   --header 'Authorization: Bearer AUTH0.COM_ID_TOKEN'
+
+###
+
+@auctionId = 07c43e1a-9c87-4c78-89da-4aacf9fda0e4
+PATCH {{baseUrl}}/auction/{{auctionId}}/picture
+Content-Type: image/jpeg
+
+/9j/4AAQSkZJRgABAQEASABIAAD/4QAWRXhpZgAATU0AKgAAAAgAAAAAAAD=
