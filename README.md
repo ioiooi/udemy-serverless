@@ -71,6 +71,8 @@ PublicAccessBlockConfiguration:
   RestrictPublicBuckets: false
 ```
 
+- Add `LifecycleConfiguration` to S3 Bucket and auto delete pictures after 7 days
+
 ## Commands
 
 ### Deploying
