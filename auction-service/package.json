@@ -35,6 +35,7 @@
     "@middy/input-output-logger": "^4.4.3",
     "@middy/validator": "^4.4.3",
     "http-errors": "^2.0.0",
+    "serverless-s3-remover": "^0.6.0",
     "uuid": "^9.0.0"
   }
 }
