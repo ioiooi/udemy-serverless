@@ -11,11 +11,8 @@ export async function uploadAuctionPicutre(event) {
   const buffer = Buffer.from(base64, "base64");
 
   try {
-    const uploadToS3Result = await uploadPictureToS3(
-      auction.id + ".jpg",
-      buffer
-    );
-    console.log(uploadToS3Result);
+    const pictureUrl = await uploadPictureToS3(auction.id + ".jpg", buffer);
+    console.log(pictureUrl);
   } catch (error) {
     console.log(error);
     throw new createError.InternalServerError(error);

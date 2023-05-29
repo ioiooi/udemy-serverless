@@ -12,8 +12,10 @@ export async function uploadPictureToS3(key, body) {
     ContentType: "image/jpeg",
   };
 
-  return new Upload({
+  const result = await new Upload({
     client,
     params,
   }).done();
+
+  return result.Location;
 }
