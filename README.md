@@ -71,6 +71,8 @@ PublicAccessBlockConfiguration:
   RestrictPublicBuckets: false
 ```
 
+![](docs/images/s3-public-access.PNG)
+
 - Add `LifecycleConfiguration` to S3 Bucket and auto delete pictures after 7 days
 - Upload pictures by using the `Upload` Object from `@aws-sdk/lib-storage` instead of a `PutObjectCommand` because the latter does not return the resulting Location. Be sure to call `done()` on the Upload Object or else the result won't have the Location. https://stackoverflow.com/q/67984373/5663191
 - Add the Location from the S3 Upload to the dynamodb auction item and return the updated item
