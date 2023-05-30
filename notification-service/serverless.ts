@@ -1,5 +1,8 @@
 import type { AWS } from "@serverless/typescript";
 
+import mailQueueIAM from "iam/mailQueueIAM";
+import sendMailIAM from "iam/sendMailIAM";
+import { mailQueueResource, mailQueueOutputs } from "resources/mailQueue";
 import sendMail from "@functions/sendMail";
 
 const serverlessConfiguration: AWS = {
@@ -12,41 +15,14 @@ const serverlessConfiguration: AWS = {
     memorySize: 256,
     stage: '${opt:stage, "dev"}',
     region: "eu-central-1",
-    iamRoleStatements: [
-      {
-        Effect: "Allow",
-        Action: ["sqs:ReceiveMessage"],
-        Resource: "${self:custom.mailQueue.arn}",
-      },
-      {
-        Effect: "Allow",
-        Action: ["ses:SendEmail"],
-        Resource: "arn:aws:ses:*",
-      },
-    ],
+    iamRoleStatements: [mailQueueIAM, sendMailIAM],
   },
   resources: {
     Resources: {
-      MailQueue: {
-        Type: "AWS::SQS::Queue",
-        Properties: {
-          QueueName: "${self:custom.mailQueue.name}",
-        },
-      },
+      ...mailQueueResource,
     },
     Outputs: {
-      MailQueueArn: {
-        Value: "${self:custom.mailQueue.arn}",
-        Export: {
-          Name: "${self:custom.mailQueue.name}-Arn",
-        },
-      },
-      MailQueueUrl: {
-        Value: "${self:custom.mailQueue.url}",
-        Export: {
-          Name: "${self:custom.mailQueue.name}-Url",
-        },
-      },
+      ...mailQueueOutputs,
     },
   },
   // import the function via paths
