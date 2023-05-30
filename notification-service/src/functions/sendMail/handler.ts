@@ -1,15 +1,16 @@
-import { SES } from "@aws-sdk/client-ses";
+import { SES, SendEmailCommandInput } from "@aws-sdk/client-ses";
+import { SQSEvent } from "aws-lambda";
 
 const ses = new SES({ region: "eu-central-1" });
 
-async function sendMail(event, context) {
+const sendMail = async (event: SQSEvent) => {
   console.log(event);
 
   const record = event.Records[0];
   const email = JSON.parse(record.body);
   const { subject, body, recipient } = email;
 
-  const params = {
+  const params: SendEmailCommandInput = {
     Source: "pehajew370@asuflex.com",
     Destination: {
       ToAddresses: [recipient],
@@ -33,6 +34,6 @@ async function sendMail(event, context) {
   } catch (error) {
     console.error(error);
   }
-}
+};
 
-export const handler = sendMail;
+export const main = sendMail;
