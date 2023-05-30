@@ -1,17 +1,37 @@
-# Codingly.io: Base Serverless Framework Template
+# Notification Service in TypeScript
 
-https://codingly.io
+https://www.serverless.com/framework/docs/providers/aws/cli-reference/create
 
-## What's included
-* Folder structure used consistently across our projects.
-* [serverless-pseudo-parameters plugin](https://www.npmjs.com/package/serverless-pseudo-parameters): Allows you to take advantage of CloudFormation Pseudo Parameters.
-* [serverless-bundle plugin](https://www.npmjs.com/package/serverless-pseudo-parameters): Bundler based on the serverless-webpack plugin - requires zero configuration and fully compatible with ES6/ES7 features.
+Use existing `aws-nodejs-typescript` template as base.
 
-## Getting started
+## Notes: Move from javascript and yml to TS
+
+- Serverless variables like `${sls:stage}` or `${self:custom.Foo.Bar}` can still (and easily) be used
+- Custom mailQueue variables had to be rewritten because just wrapping GetAtt or Ref functions in quotes didn't work
+
+Before:
+
+```yml
+mailQueue:
+  name: MailQueue-${self:provider.stage}
+  arn: !GetAtt MailQueue.Arn
+  url: !Ref MailQueue
 ```
-sls create --name YOUR_PROJECT_NAME --template-url https://github.com/codingly-io/sls-base
-cd YOUR_PROJECT_NAME
-npm install
+
+After:
+
+```ts
+mailQueue: {
+  name: "MailQueue-${sls:stage}",
+  arn: { "Fn::GetAtt": ["MailQueue", "Arn"] },
+  url: { Ref: "MailQueue" }
+}
 ```
 
-You are ready to go!
+- Lambda config like which events the function is triggered by are moved into the function folder. See `./src/functions/sendMail/index.ts`.
+
+## Links
+
+https://github.com/andrenbrandao/serverless-typescript-boilerplate/blob/main/serverless.ts
+https://github.com/mamezou-tech/serverless-example-typescript/blob/main/serverless.ts
+https://forum.serverless.com/t/reference-aws-arn-in-serverless-ts-file/12192
