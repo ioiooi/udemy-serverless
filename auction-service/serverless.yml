@@ -2,7 +2,6 @@ service: auction-service
 
 plugins:
   - serverless-bundle
-  - serverless-s3-remover
 
 provider:
   name: aws
@@ -87,6 +86,3 @@ custom:
     url: ${cf:notification-service-${self:provider.stage}.MailQueueUrl}
   AuctionsBucket:
     name: auctions-bucket-ap4bwc-${self:provider.stage}
-  remover:
-     buckets:
-       - ${self:custom.AuctionsBucket.name}
