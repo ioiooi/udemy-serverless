@@ -8,9 +8,9 @@
     "jsonwebtoken": "^9.0.0"
   },
   "devDependencies": {
-    "@types/aws-lambda": "^8.10.116",
+    "@types/aws-lambda": "^8.10.119",
     "@types/jsonwebtoken": "^9.0.2",
-    "@types/node": "^20.2.5",
+    "@types/node": "^20.3.1",
     "serverless-bundle": "^6.0.0"
   }
 }
